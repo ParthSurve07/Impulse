@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import './Header.css'
+// import './Header.css'
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -19,13 +19,14 @@ const itemVariants = {
 
 function Header() {
   return (
-    <motion.div 
-      variants={itemVariants} 
+    <motion.div
+      variants={itemVariants}
       initial="hidden"
       animate="visible"
       transition={{ duration: 0.5 }}
-      className="mx-auto my-4 max-w-[90vw]">
-      <div className="bg-[rgba(0,123,255,0.8)] px-4 py-3 rounded-2xl flex justify-between items-center">
+      className="mx-auto my-4 max-w-[90vw]"
+    >
+      <div className="px-4 py-3 rounded-2xl flex justify-between items-center">
         <div className="w-10">
           <img
             className="rounded-lg"
@@ -40,16 +41,25 @@ function Header() {
             animate="visible"
             className="flex gap-x-16"
           >
-            <motion.li variants={itemVariants}>About</motion.li>
-            <motion.li variants={itemVariants}>Contact</motion.li>
-            <motion.li variants={itemVariants}>Gallery</motion.li>
+            <motion.li className='uppercase' whileHover={{ scale: 1.4 }} variants={itemVariants}>
+              About
+            </motion.li>
+            <motion.li className='uppercase' whileHover={{ scale: 1.4 }} variants={itemVariants}>
+              Gallery
+            </motion.li>
+            <motion.li className='uppercase' whileHover={{ scale: 1.4 }} variants={itemVariants}>
+              Contact
+            </motion.li>
           </motion.ul>
         </div>
         <div>
           <motion.button
-            whileHover={{ scale: 1.18 }}
+            whileHover={{
+              scale: 1.18,
+              boxShadow: "0px 0px 10px 5px rgba(255, 105, 180, 0.8)", // Glow effect on hover
+            }}
             whileTap={{ scale: 0.9 }}
-            className="bg-gradient-to-r from-pink-500 to-rose-500 px-8 py-3 rounded-xl text-white"
+            className="bg-gradient-to-r from-pink-500 to-rose-500 px-8 py-3 rounded-xl text-white transition-all duration-300 cursor-none"
           >
             REGISTER
           </motion.button>
