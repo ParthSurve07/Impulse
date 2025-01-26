@@ -1,13 +1,16 @@
 import React from 'react'
 import Header from './components/Header'
 import CursorDot from './components/CursorDot'
-import RevealLinks from './components/RevealLinks'
+import Hero from './components/Hero'
+import About from './components/About'
 
 function App() {
   return (
     <>
       <CursorDot />
       <Header />
+      <Hero />
+      <About />
     </>
   )
 }

@@ -7,7 +7,7 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
     },
   },
 }
@@ -23,43 +23,39 @@ function Header() {
       variants={itemVariants}
       initial="hidden"
       animate="visible"
-      transition={{ duration: 0.5 }}
-      className="mx-auto my-4 max-w-[90vw]"
+      transition={{ duration: 0.3 }}
+      className="my-4 w-[90vw] max-w-[90%] z-10 fixed top-0 left-[5%]"
     >
-      <div className="px-4 py-3 rounded-2xl flex justify-between items-center">
-        <div className="w-10">
-          <img
-            className="rounded-lg"
-            src="https://images.pexels.com/photos/8457466/pexels-photo-8457466.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt=""
-          />
-        </div>
-        <div className="text-white">
+      <div className="px-4 md:px-16 py-3 rounded-2xl flex flex-col md:flex-row justify-between items-center">
+        <div className="text-white mb-3 md:mb-0">
           <motion.ul
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="flex gap-x-16"
+            className="flex gap-x-4 md:gap-x-16"
           >
-            <motion.li className='uppercase' whileHover={{ scale: 1.4 }} variants={itemVariants}>
-              About
-            </motion.li>
-            <motion.li className='uppercase' whileHover={{ scale: 1.4 }} variants={itemVariants}>
-              Gallery
-            </motion.li>
-            <motion.li className='uppercase' whileHover={{ scale: 1.4 }} variants={itemVariants}>
-              Contact
-            </motion.li>
+            {["About", "Gallery", "Contact"].map((item, index) => (
+              <motion.li
+                key={index}
+                className="uppercase font-bold tracking-wider relative transition-all duration-150 text-sm md:text-base"
+                variants={itemVariants}
+                whileHover={{
+                  textShadow: "0px 2px 6px rgba(147, 51, 234, 0.8)",
+                }}
+              >
+                {item}
+              </motion.li>
+            ))}
           </motion.ul>
         </div>
         <div>
           <motion.button
             whileHover={{
               scale: 1.18,
-              boxShadow: "0px 0px 10px 5px rgba(255, 105, 180, 0.8)", // Glow effect on hover
+              boxShadow: "0px 0px 15px 5px rgba(138, 43, 226, 0.8)",
             }}
             whileTap={{ scale: 0.9 }}
-            className="bg-gradient-to-r from-pink-500 to-rose-500 px-8 py-3 rounded-xl text-white transition-all duration-300 cursor-none"
+            className="bg-gradient-to-r from-purple-500 to-indigo-600 px-6 md:px-8 py-2 md:py-3 rounded-xl text-white transition-all duration-300 tracking-wider font-bold text-sm md:text-base cursor-none"
           >
             REGISTER
           </motion.button>
@@ -68,5 +64,6 @@ function Header() {
     </motion.div>
   );
 }
+
 
 export default Header

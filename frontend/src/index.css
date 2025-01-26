@@ -1,11 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Rubik", serif;
     cursor: none;
+}
+
+.glowing-text {
+    font-weight: bold;
+    color: white;
+    transition: all 0.1s ease-in-out;
+}
+
+.glowing-text:hover {
+    color: #e91e63;
+    text-shadow: 0 0 15px #ffffff, 0 0 30px #e91e63, 0 0 60px #e91e63,
+        0 0 120px #e91e63;
+}
+
+@layer utilities {
+    .glass-navbar {
+        background-color: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(50px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
 }

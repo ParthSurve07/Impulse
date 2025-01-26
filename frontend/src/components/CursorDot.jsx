@@ -53,12 +53,12 @@ const CursorDot = ({ hoveredItem }) => {
     position: "fixed",
     width: "20px",
     height: "20px",
-    backgroundColor: "white",
+    backgroundColor: "rgba(255, 255, 255, 0.5)",
     borderRadius: "50%",
     pointerEvents: "none",
     zIndex: 9999,
-    opacity: isDissolving ? 0 : 1, // Dissolve when hovered item is present
-    transition: "opacity 0.3s ease-out", // Smooth fade out effect
+    opacity: isDissolving ? 0 : 1,
+    transition: "opacity 0.3s ease-out",
   };
 
   return <div ref={dotRef} style={dotStyle}></div>;
